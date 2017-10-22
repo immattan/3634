@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Attendance</string>
+    <string name="codeFind">Enter Session Code...</string>
+    <string name="attendButton">Attend!</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="textCreate">Create Session</string>
+    <string name="className">Enter the Class Name</string>
+    <string name="radioText">Session Length</string>
+    <string name="createButton">Create Session</string>
+    <string name="idLogin">Enter your zID</string>
+    <string name="passwordLogin">Enter password</string>
+    <string name="zIDRegister">Enter zID</string>
+    <string name="password1">Enter a password</string>
+    <string name="password2">Confirm password</string>
+    <string name="accountType">Select Account Type</string>
+    <string name="register">Register</string>
+    <string name="zIDAttend">Enter zID</string>
+</resources>
