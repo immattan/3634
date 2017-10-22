@@ -8,7 +8,7 @@ package tan.a3634;
         import android.widget.EditText;
         import android.widget.Toast;
 
-        import tan.attendance.R;
+        import tan.a3634.R;
 
 public class MainActivity extends AppCompatActivity {
 

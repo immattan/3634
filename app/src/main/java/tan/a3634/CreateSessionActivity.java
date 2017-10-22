@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.security.SecureRandom;
 import java.util.concurrent.ThreadLocalRandom;
 
-import tan.attendance.R;
+import tan.a3634.R;
 
 
 public class CreateSessionActivity extends AppCompatActivity {

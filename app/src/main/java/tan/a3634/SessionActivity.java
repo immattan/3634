@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.security.SecureRandom;
 import java.util.concurrent.ThreadLocalRandom;
 
-import tan.attendance.R;
+import tan.a3634.R;
 
 /**
  * Created by Tan on 20/10/2017.
