@@ -6,14 +6,11 @@ package tan.a3634;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.Toast;
-
-        import tan.a3634.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mLogin;
-    private Button mSignup;
+    private Button mStudent;
+    private Button mTutor;
     private EditText midLogin;
     private EditText mpasswordLogin;
     private Button mattendButton;
@@ -23,19 +20,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        mLogin = (Button) findViewById(R.id.login);
-        mLogin.setOnClickListener(new View.OnClickListener() {
+        mStudent = (Button) findViewById(R.id.student);
+        mStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent (MainActivity.this, CreateSessionActivity.class);
-                startActivity(mainIntent);
+                Intent intentStudent = new Intent (MainActivity.this, StudentViewActivity.class);
+                startActivity(intentStudent);
             }
         });
-        mSignup = (Button) findViewById(R.id.signup);
-        mSignup.setOnClickListener(new View.OnClickListener() {
+        mTutor = (Button) findViewById(R.id.Teacher);
+        mTutor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.register);
+                Intent intentTutor = new Intent (MainActivity.this, CreateSessionActivity.class);
+                startActivity(intentTutor);
             }
         });
         //midLogin = (EditText) findViewById(R.id.idLogin);

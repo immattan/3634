@@ -2,8 +2,6 @@
     <string name="app_name">Attendance</string>
     <string name="codeFind">Enter Session Code...</string>
     <string name="attendButton">Attend!</string>
-    <string name="login">Login</string>
-    <string name="signup">Sign Up</string>
     <string name="textCreate">Create Session</string>
     <string name="className">Enter the Class Name</string>
     <string name="radioText">Session Length</string>
@@ -16,4 +14,7 @@
     <string name="accountType">Select Account Type</string>
     <string name="register">Register</string>
     <string name="zIDAttend">Enter zID</string>
+    <string name="student">Student</string>
+    <string name="Teacher">Tutor</string>
+    <string name="login">login</string>
 </resources>
