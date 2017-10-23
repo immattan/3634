@@ -16,9 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateSessionActivity"></activity>
-        <activity android:name=".SessionActivity"></activity>
-        <activity android:name=".StudentViewActivity"></activity>
+        <activity android:name=".CreateSessionActivity" />
+        <activity android:name=".SessionActivity" />
+        <activity android:name=".StudentViewActivity" />
+        <activity android:name=".SessionViewActivity"></activity>
     </application>
 
 </manifest>

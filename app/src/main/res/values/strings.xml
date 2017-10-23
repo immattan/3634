@@ -17,4 +17,24 @@
     <string name="student">Student</string>
     <string name="Teacher">Tutor</string>
     <string name="login">login</string>
+
+    <array name="zid">
+    <item>z3000001</item>
+    <item>z3000002</item>
+    <item>z3000003</item>
+    <item>z3000004</item>
+    <item>z3000005</item>
+    <item>z3000006</item>
+    <item>z3000007</item>
+    </array>
+
+    <array name="classes">
+        <item>class0</item>
+        <item>class1</item>
+        <item>class2</item>
+        <item>class3</item>
+        <item>class4</item>
+
+    </array>
+
 </resources>

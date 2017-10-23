@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "690609497919",
+    "firebase_url": "https://imhere-a8207.firebaseio.com",
+    "project_id": "imhere-a8207",
+    "storage_bucket": "imhere-a8207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690609497919:android:638a7ce467bae571",
+        "android_client_info": {
+          "package_name": "tan.a3634"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690609497919-d8hkobp8bttftgcl6kam2ot5r2cth3rr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tan.a3634",
+            "certificate_hash": "4bd86578fd90d729828fe4ac110722a36ba54f31"
+          }
+        },
+        {
+          "client_id": "690609497919-b4ms9lh988umdtdn53rpot8ph8voo2bs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrzWq9NoAjhmwUGANEQ_jiQkJhXTeUmxk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690609497919-b4ms9lh988umdtdn53rpot8ph8voo2bs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
