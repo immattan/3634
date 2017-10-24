@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/textTutName"
+        android:text="Select Tutorial..."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
@@ -18,7 +19,7 @@
 
     <ListView
         android:id="@+id/listViewTutorial"
-        android:layout_width="309dp"
+        android:layout_width="334dp"
         android:layout_height="506dp"
         android:layout_marginTop="7dp"
         app:layout_constraintTop_toBottomOf="@+id/textTutName"

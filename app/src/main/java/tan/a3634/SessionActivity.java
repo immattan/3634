@@ -26,25 +26,23 @@ public class SessionActivity extends AppCompatActivity {
     public static final String TUTORIAL_CLASSES = "tutorialClasses";
     private DatabaseReference cDatabase;
     private ListView listViewTut;
-    private TextView tutorialName;
-    List<Tutorial> tutorialList;
+    List<Tutorial> studentTutorial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessionlistview);
         listViewTut = (ListView) findViewById(R.id.listViewTutorial);
-        tutorialName = findViewById(R.id.textTutName);
 
 
-        tutorialList = new ArrayList<>();
+        studentTutorial = new ArrayList<>();
 
         cDatabase = FirebaseDatabase.getInstance().getReference();
 
         listViewTut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Tutorial tutorial = tutorialList.get(i);
+                Tutorial tutorial = studentTutorial.get(i);
                 Intent intent = new Intent(getApplicationContext(),StudentViewActivity.class);
 
                 intent.putExtra(TUTORIAL_ID, tutorial.getClassID());
@@ -63,9 +61,9 @@ public class SessionActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot tutorialSnapshot: dataSnapshot.getChildren()){
                     Tutorial tutorial = tutorialSnapshot.getValue(Tutorial.class);
-                    tutorialList.add(tutorial);
+                    studentTutorial.add(tutorial);
                 }
-                TutorialList adapter = new TutorialList(SessionActivity.this, tutorialList);
+                StudentTutorialList adapter = new StudentTutorialList(SessionActivity.this, studentTutorial);
                 listViewTut.setAdapter(adapter);
             }
 

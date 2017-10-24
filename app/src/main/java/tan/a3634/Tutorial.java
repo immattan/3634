@@ -12,6 +12,10 @@ public class Tutorial {
     public Tutorial(){
 
     }
+//    public Tutorial(String classID, String classes){
+//        this.classID = classID;
+//        this.classes = classes;
+//    }
 
     public Tutorial(String classID, String troomCode, String classes) {
         this.classID = classID;
