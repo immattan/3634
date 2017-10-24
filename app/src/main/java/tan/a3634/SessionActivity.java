@@ -26,15 +26,15 @@ public class SessionActivity extends AppCompatActivity {
     public static final String TUTORIAL_CLASSES = "tutorialClasses";
     private DatabaseReference cDatabase;
     private ListView listViewTut;
-<<<<<<< HEAD
+//<<<<<<< HEAD
     List<Tutorial> studentTutorial;
 
-=======
+//=======
     private TextView tutorialName;
     List<Tutorial> tutorialList;
     // This activity is a listView that displays all the current sessions in the database.
     // Students can select a session and attempt to join it
->>>>>>> aa09dc8715c9686a089574090876a2545bfe478a
+//>>>>>>> aa09dc8715c9686a089574090876a2545bfe478a
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
