@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentStudent = new Intent (MainActivity.this, StudentViewActivity.class);
+                Intent intentStudent = new Intent (MainActivity.this, SessionActivity.class);
                 startActivity(intentStudent);
             }
         });
