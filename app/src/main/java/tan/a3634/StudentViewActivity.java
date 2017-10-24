@@ -67,7 +67,7 @@ public class StudentViewActivity extends AppCompatActivity {
             Student student = new Student(id, name, zid, code);
             mDatabase.child(id).setValue(student);
 
-            Toast.makeText(this,"Attendance has been mark!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Attendance has been marked!", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Please enter your name! ", Toast.LENGTH_LONG).show();
         }

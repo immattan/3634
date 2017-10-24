@@ -33,10 +33,8 @@ public class SessionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessionlistview);
-        String getCode = getIntent().getExtras().getString("randomString");
         listViewTut = (ListView) findViewById(R.id.listViewTutorial);
         tutorialName = findViewById(R.id.textTutName);
-        tutorialName.setText(getCode);
 
 
         tutorialList = new ArrayList<>();

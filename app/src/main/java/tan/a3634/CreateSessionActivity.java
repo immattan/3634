@@ -51,7 +51,7 @@ public class CreateSessionActivity extends AppCompatActivity {
         ccreateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createSessionIntent = new Intent(CreateSessionActivity.this, SessionActivity.class);
+                Intent createSessionIntent = new Intent(CreateSessionActivity.this, TutorSessionActivity.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putString("randomString", roomCode);
                 createSessionIntent.putExtras(mBundle);
