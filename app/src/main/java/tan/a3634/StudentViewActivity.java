@@ -16,9 +16,6 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * Created by Karen Feng on 22/10/2017.
- */
 
 public class StudentViewActivity extends AppCompatActivity {
     private EditText mStudentName;
@@ -33,8 +30,8 @@ public class StudentViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.studentview);
-
+        setContentView(R.layout.studentview); //Students can attempt to attend sessions by entering the push code
+                                              //They will also enter there zID which will be entered into the DB and displayed
         mStudentName = (EditText) findViewById(R.id.studentName);
         mCodeFind = (EditText) findViewById(R.id.codeFind);
         mspinnerZID = (Spinner) findViewById(R.id.spinnerZID);
@@ -66,9 +63,9 @@ public class StudentViewActivity extends AppCompatActivity {
 
             Student student = new Student(id, name, zid, code);
             mDatabase.child(id).setValue(student);
-
+            //Inform the user they have been successful
             Toast.makeText(this,"Attendance has been marked!", Toast.LENGTH_LONG).show();
-        } else {
+        } else { //Error handling when user unsuccessful
             Toast.makeText(this, "Please enter your name! ", Toast.LENGTH_LONG).show();
         }
 

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#e6fffa">
+    android:background="#f4f3f2">
 
     <TextView
         android:layout_width="wrap_content"
@@ -84,8 +84,9 @@
         android:layout_width="309dp"
         android:layout_height="506dp"
         android:layout_marginTop="7dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createButton"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="257dp" />
+        />
 
 </android.support.constraint.ConstraintLayout>

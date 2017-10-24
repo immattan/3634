@@ -11,16 +11,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mStudent;
     private Button mTutor;
-    private EditText midLogin;
-    private EditText mpasswordLogin;
-    private Button mattendButton;
 
-    @Override
+    @Override //A splash page to direct the user
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        mStudent = (Button) findViewById(R.id.student);
+        mStudent = (Button) findViewById(R.id.student); //Start activities containing functions depending on user type
         mStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
