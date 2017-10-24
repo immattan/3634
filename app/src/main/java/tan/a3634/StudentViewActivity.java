@@ -1,5 +1,7 @@
 package tan.a3634;
 
+import android.content.Intent;
+import android.content.pm.PackageInstaller;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +25,7 @@ public class StudentViewActivity extends AppCompatActivity {
     private EditText mCodeFind;
     private Spinner mspinnerZID;
     private Button mAttendButton;
+    private TextView tutorialName;
 
     private DatabaseReference mDatabase;
 
@@ -35,8 +39,15 @@ public class StudentViewActivity extends AppCompatActivity {
         mCodeFind = (EditText) findViewById(R.id.codeFind);
         mspinnerZID = (Spinner) findViewById(R.id.spinnerZID);
         mAttendButton = (Button) findViewById(R.id.attendButton);
+        tutorialName = (TextView) findViewById(R.id.textViewTutorialName);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        Intent intent = getIntent();
+        String id = intent.getStringExtra(SessionActivity.TUTORIAL_ID);
+        String name = intent.getStringExtra(SessionActivity.TUTORIAL_CLASSES);
+        tutorialName.setText(name);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("Students").child(id);
+
 
         mAttendButton.setOnClickListener(new View.OnClickListener() {
             @Override

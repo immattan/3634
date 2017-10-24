@@ -1,13 +1,24 @@
 package tan.a3634;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import tan.a3634.R;
@@ -17,22 +28,56 @@ import tan.a3634.R;
  */
 
 public class SessionActivity extends AppCompatActivity {
-    private TextView mDisplayedCode;
-    private String randomString;
-    String[] attendingArray = {"z1688543", "z3925548", "z3029650", "z4039348", "z5053214"};
+    public static final String TUTORIAL_ID = "tutorialID";
+    public static final String TUTORIAL_CLASSES = "tutorialClasses";
+    private DatabaseReference cDatabase;
+    private ListView listViewTut;
+    private TextView tutorialName;
+    List<Tutorial> tutorialList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.attendingtable);
-        randomString = getIntent().getExtras().getString("randomString");
-        Log.d("TESTTEST", randomString);
-        mDisplayedCode = (TextView) findViewById(R.id.displayedCode);
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_view, attendingArray);
+        setContentView(R.layout.sessionlistview);
+        listViewTut = (ListView) findViewById(R.id.listViewTutorial);
 
-        ListView attendingList = (ListView) findViewById(R.id.attendList);
-        attendingList.setAdapter(adapter);
+        tutorialList = new ArrayList<>();
 
-        mDisplayedCode.setText(randomString.toUpperCase());
+        cDatabase = FirebaseDatabase.getInstance().getReference();
+
+        listViewTut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Tutorial tutorial = tutorialList.get(i);
+                Intent intent = new Intent(getApplicationContext(),StudentViewActivity.class);
+
+                intent.putExtra(TUTORIAL_ID, tutorial.getClassID());
+                intent.putExtra(TUTORIAL_CLASSES, tutorial.getClasses());
+
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    protected void onStart() {
+        super.onStart();
+        cDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot tutorialSnapshot: dataSnapshot.getChildren()){
+                    Tutorial tutorial = tutorialSnapshot.getValue(Tutorial.class);
+                    tutorialList.add(tutorial);
+                }
+                TutorialList adapter = new TutorialList(SessionActivity.this, tutorialList);
+                listViewTut.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }
