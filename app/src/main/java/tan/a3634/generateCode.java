@@ -11,7 +11,8 @@ package tan.a3634;
 public class generateCode {
 
     /**
-     * Generate a random string.
+     * Generate a random string. This is code taken from stackoverflow
+     *https://stackoverflow.com/questions/41107/how-to-generate-a-random-alpha-numeric-string
      */
     public String nextString() {
         for (int idx = 0; idx < buf.length; ++idx)
@@ -61,6 +62,6 @@ public class generateCode {
      */
     public generateCode() {
         this(5);
-    }
+    } //Set the length of the string to 5 characters
 
 }

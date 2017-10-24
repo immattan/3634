@@ -35,7 +35,7 @@ public class CreateSessionActivity extends AppCompatActivity {
 
     generateCode gen = new generateCode();
     String roomCode = gen.nextString().toUpperCase();
-
+// The random string that becomes our push code is generated when attempting to create a Session
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class CreateSessionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent createSessionIntent = new Intent(CreateSessionActivity.this, TutorSessionActivity.class);
                 Bundle mBundle = new Bundle();
-                mBundle.putString("randomString", roomCode);
+                mBundle.putString("randomString", roomCode); // Bundle the room code and transfer it to be displayed
                 createSessionIntent.putExtras(mBundle);
                 startActivity(createSessionIntent);
                 addTutorial();
@@ -71,7 +71,6 @@ public class CreateSessionActivity extends AppCompatActivity {
                 intent.putExtra(TUTORIAL_CLASSES, tutorial.getClasses());
 
                 startActivity(intent);
-
             }
         });
     }

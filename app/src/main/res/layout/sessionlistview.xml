@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e6fffa">
+    android:background="#f4f3f2">
 
     <TextView
         android:id="@+id/textTutName"
