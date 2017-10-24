@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "690609497919-h2tnus2lqjjoa9j7gkhb0rdcqhes5pt0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tan.a3634",
+            "certificate_hash": "56a6d43d2fcd24238138705ca4ebc518fbc52d01"
+          }
+        },
+        {
           "client_id": "690609497919-d8hkobp8bttftgcl6kam2ot5r2cth3rr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

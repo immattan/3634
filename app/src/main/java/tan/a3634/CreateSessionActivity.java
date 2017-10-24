@@ -57,7 +57,7 @@ public class CreateSessionActivity extends AppCompatActivity {
                 createSessionIntent.putExtras(mBundle);
                 startActivity(createSessionIntent);
                 addTutorial();
-                Toast.makeText(CreateSessionActivity.this, roomCode, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateSessionActivity.this, roomCode, Toast.LENGTH_LONG).show();
             }
         });
 

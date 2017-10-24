@@ -29,14 +29,20 @@ public class StudentListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studentlistview);
-        tutorialName = (TextView) findViewById(R.id.textTutName2);
+        String getCode = getIntent().getExtras().getString("randomString"); // Get the generated code from create activity
+        tutorialName = findViewById(R.id.textTutName2);
+        tutorialName.setText(getCode); // And display that code
         activate = (Button) findViewById(R.id.activateAttend);
         deactivate = (Button) findViewById(R.id.deactivateAttend);
         students = new ArrayList<>();
         Intent intent = getIntent();
         String name = intent.getStringExtra(CreateSessionActivity.TUTORIAL_CLASSES);
+<<<<<<< HEAD
         tutorialName.setText(name);
         mDatabase = FirebaseDatabase.getInstance().getReference("Students");
+=======
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+>>>>>>> 2bc592af7ddb43ab7b9bf81be85f7a0383ccda81
 
 //        activate.setOnClickListener(new View.OnClickListener(){
 //         @Override
