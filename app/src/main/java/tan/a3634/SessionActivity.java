@@ -24,27 +24,11 @@ import java.util.List;
 public class SessionActivity extends AppCompatActivity {
     public static final String TUTORIAL_ID = "tutorialID";
     public static final String TUTORIAL_CLASSES = "tutorialClasses";
-    private DatabaseReference cDatabase;
+    DatabaseReference cDatabase;
     private ListView listViewTut;
-<<<<<<< HEAD
-    List<Tutorial> studentTutorial;
-
-
-=======
-//<<<<<<< HEAD
-    List<Tutorial> studentTutorial;
-
-//=======
->>>>>>> 2bc592af7ddb43ab7b9bf81be85f7a0383ccda81
     private TextView tutorialName;
     List<Tutorial> tutorialList;
-    // This activity is a listView that displays all the current sessions in the database.
-    // Students can select a session and attempt to join it
-<<<<<<< HEAD
 
-=======
-//>>>>>>> aa09dc8715c9686a089574090876a2545bfe478a
->>>>>>> 2bc592af7ddb43ab7b9bf81be85f7a0383ccda81
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +36,14 @@ public class SessionActivity extends AppCompatActivity {
         listViewTut = (ListView) findViewById(R.id.listViewTutorial);
 
 
-        studentTutorial = new ArrayList<>();
+        tutorialList = new ArrayList<>();
 
-        cDatabase = FirebaseDatabase.getInstance().getReference();
+        cDatabase = FirebaseDatabase.getInstance().getReference("Classes");
 
         listViewTut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Tutorial tutorial = studentTutorial.get(i);
+                Tutorial tutorial = tutorialList.get(i);
                 Intent intent = new Intent(getApplicationContext(),StudentViewActivity.class);
 
                 intent.putExtra(TUTORIAL_ID, tutorial.getClassID());
@@ -76,12 +60,12 @@ public class SessionActivity extends AppCompatActivity {
         cDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                studentTutorial.clear();
+                tutorialList.clear();
                 for(DataSnapshot tutorialSnapshot: dataSnapshot.getChildren()){
                     Tutorial tutorial = tutorialSnapshot.getValue(Tutorial.class);
-                    studentTutorial.add(tutorial);
+                    tutorialList.add(tutorial);
                 }
-                StudentTutorialList adapter = new StudentTutorialList(SessionActivity.this, studentTutorial);
+                StudentTutorialList adapter = new StudentTutorialList(SessionActivity.this, tutorialList);
                 listViewTut.setAdapter(adapter);
             }
 

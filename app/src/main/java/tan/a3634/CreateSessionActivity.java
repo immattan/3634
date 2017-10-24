@@ -101,7 +101,7 @@ public class CreateSessionActivity extends AppCompatActivity {
     private void addTutorial() {
 
         String classes = cspinnerClass.getSelectedItem().toString();
-        String roomcode = roomCode.getClass().toString().trim();
+        String roomcode = roomCode.getClass().toString();
         String id = cDatabase.push().getKey();
 
         Tutorial tutorial = new Tutorial(id, classes, roomcode);

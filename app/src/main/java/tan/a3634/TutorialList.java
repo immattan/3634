@@ -25,9 +25,8 @@ public class TutorialList extends ArrayAdapter<Tutorial> {
                 this.tutorialList = tutorialList;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
 
         View listViewItem = inflater.inflate(R.layout.session_view, null, true);

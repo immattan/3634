@@ -43,7 +43,7 @@ public class StudentViewActivity extends AppCompatActivity {
         String name = intent.getStringExtra(SessionActivity.TUTORIAL_CLASSES);
         tutorialName.setText(name);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Students").child(id);
+        mDatabase = FirebaseDatabase.getInstance().getReference("Students").child(intent.getStringExtra(CreateSessionActivity.TUTORIAL_ID));
 
 
         mAttendButton.setOnClickListener(new View.OnClickListener() {

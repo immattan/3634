@@ -37,12 +37,9 @@ public class StudentListActivity extends AppCompatActivity {
         students = new ArrayList<>();
         Intent intent = getIntent();
         String name = intent.getStringExtra(CreateSessionActivity.TUTORIAL_CLASSES);
-<<<<<<< HEAD
         tutorialName.setText(name);
         mDatabase = FirebaseDatabase.getInstance().getReference("Students");
-=======
-        mDatabase = FirebaseDatabase.getInstance().getReference();
->>>>>>> 2bc592af7ddb43ab7b9bf81be85f7a0383ccda81
+
 
 //        activate.setOnClickListener(new View.OnClickListener(){
 //         @Override

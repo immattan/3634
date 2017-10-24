@@ -20,7 +20,6 @@
         <activity android:name=".SessionActivity" />
         <activity android:name=".StudentViewActivity" />
         <activity android:name=".StudentListActivity"></activity>
-        <activity android:name=".TutorSessionActivity"></activity>
     </application>
 
 </manifest>
