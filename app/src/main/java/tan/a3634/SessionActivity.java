@@ -3,10 +3,8 @@ package tan.a3634;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,12 +14,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
-import tan.a3634.R;
 
 /**
  * Created by Tan on 20/10/2017.
@@ -39,7 +33,11 @@ public class SessionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sessionlistview);
+        String getCode = getIntent().getExtras().getString("randomString");
         listViewTut = (ListView) findViewById(R.id.listViewTutorial);
+        tutorialName = findViewById(R.id.textTutName);
+        tutorialName.setText(getCode);
+
 
         tutorialList = new ArrayList<>();
 
