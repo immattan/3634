@@ -51,7 +51,7 @@ public class CreateSessionActivity extends AppCompatActivity {
         ccreateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createSessionIntent = new Intent(CreateSessionActivity.this, TutorSessionActivity.class);
+                Intent createSessionIntent = new Intent(CreateSessionActivity.this, StudentListActivity.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putString("randomString", roomCode); // Bundle the room code and transfer it to be displayed
                 createSessionIntent.putExtras(mBundle);
@@ -81,6 +81,7 @@ public class CreateSessionActivity extends AppCompatActivity {
         cDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                tutorialList.clear();
                 for(DataSnapshot tutorialSnapshot: dataSnapshot.getChildren()){
                     Tutorial tutorial = tutorialSnapshot.getValue(Tutorial.class);
                     tutorialList.add(tutorial);

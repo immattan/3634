@@ -38,7 +38,7 @@ public class TutorialList extends ArrayAdapter<Tutorial> {
         Tutorial tutorial = tutorialList.get(position);
 
         classView.setText(tutorial.getClasses());
-        codeView.setText(tutorial.getTroomCode());
+        codeView.setText(tutorial.getRoomCode());
 
         return listViewItem;
     }

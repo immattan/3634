@@ -36,7 +36,7 @@ public class StudentListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra(CreateSessionActivity.TUTORIAL_CLASSES);
         tutorialName.setText(name);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference("Students");
 
 //        activate.setOnClickListener(new View.OnClickListener(){
 //         @Override
@@ -50,6 +50,7 @@ public class StudentListActivity extends AppCompatActivity {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                students.clear();
                 for(DataSnapshot studentSnapshot: dataSnapshot.getChildren()){
                     Student student = studentSnapshot.getValue(Student.class);
                     students.add(student);
