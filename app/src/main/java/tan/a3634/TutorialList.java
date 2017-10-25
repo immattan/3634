@@ -32,12 +32,11 @@ public class TutorialList extends ArrayAdapter<Tutorial> {
         View listViewItem = inflater.inflate(R.layout.session_view, null, true);
 
         TextView classView = (TextView) listViewItem.findViewById(R.id.classView);
-        TextView codeView = (TextView) listViewItem.findViewById(R.id.codeView);
 
         Tutorial tutorial = tutorialList.get(position);
 
         classView.setText(tutorial.getClasses());
-        codeView.setText(tutorial.getRoomCode());
+
 
         return listViewItem;
     }

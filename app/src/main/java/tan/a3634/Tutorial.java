@@ -6,20 +6,14 @@ package tan.a3634;
 
 public class Tutorial {
     private String classID;
-    private String roomCode;
     private String classes;
 
     public Tutorial(){
 
     }
-//    public Tutorial(String classID, String classes){
-//        this.classID = classID;
-//        this.classes = classes;
-//    }
 
-    public Tutorial(String classID, String classes, String troomCode) {
+    public Tutorial(String classID, String classes) {
         this.classID = classID;
-        this.roomCode = roomCode;
         this.classes = classes;
     }
 
@@ -27,9 +21,6 @@ public class Tutorial {
         return classID;
     }
 
-    public String getRoomCode() {
-        return roomCode;
-    }
 
     public String getClasses() {
         return classes;

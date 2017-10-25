@@ -17,9 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateSessionActivity" />
-        <activity android:name=".SessionActivity" />
         <activity android:name=".StudentViewActivity" />
-        <activity android:name=".StudentListActivity"></activity>
+        <activity android:name=".StudentListActivity" />
+        <activity android:name=".TutorialListViewActivity" />
+        <activity android:name=".EnterCodeActivity" />
+        <activity android:name=".CreateCodeActivity"></activity>
     </application>
 
 </manifest>

@@ -7,17 +7,15 @@ package tan.a3634;
 public class Student {
     private String studentID;
     private String studentName;
-    private String classCode;
     private String zID;
 
     public Student(){
 
     }
 
-    public Student(String studentID, String studentName, String classCode, String zID){
+    public Student(String studentID, String studentName, String zID){
     this.studentID = studentID;
     this.studentName = studentName;
-    this.classCode = classCode;
     this.zID = zID;
     }
 
@@ -27,10 +25,6 @@ public class Student {
 
     public String getStudentName() {
         return studentName;
-    }
-
-    public String getClassCode() {
-        return classCode;
     }
 
     public String getzID() {

@@ -19,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class StudentViewActivity extends AppCompatActivity {
     private EditText mStudentName;
-    private EditText mCodeFind;
     private Spinner mspinnerZID;
     private Button mAttendButton;
     private TextView tutorialName;
@@ -33,23 +32,26 @@ public class StudentViewActivity extends AppCompatActivity {
         setContentView(R.layout.studentview); //Students can attempt to attend sessions by entering the push code
                                               //They will also enter there zID which will be entered into the DB and displayed
         mStudentName = (EditText) findViewById(R.id.studentName);
-        mCodeFind = (EditText) findViewById(R.id.codeFind);
         mspinnerZID = (Spinner) findViewById(R.id.spinnerZID);
         mAttendButton = (Button) findViewById(R.id.attendButton);
         tutorialName = (TextView) findViewById(R.id.textViewTutorialName);
 
         Intent intent = getIntent();
-        String id = intent.getStringExtra(SessionActivity.TUTORIAL_ID);
-        String name = intent.getStringExtra(SessionActivity.TUTORIAL_CLASSES);
+        String id = intent.getStringExtra(TutorialListViewActivity.TUTORIAL_ID);
+        String name = intent.getStringExtra(TutorialListViewActivity.TUTORIAL_CLASSES);
         tutorialName.setText(name);
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Students").child(intent.getStringExtra(CreateSessionActivity.TUTORIAL_ID));
 
 
         mAttendButton.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
             addStudent();
+                Intent intentEnd = new Intent (StudentViewActivity.this, MainActivity.class);
+                startActivity(intentEnd);
             }
         });
     }
@@ -57,11 +59,10 @@ public class StudentViewActivity extends AppCompatActivity {
     private void addStudent(){
         String name = mStudentName.getText().toString().trim();
         String zid = mspinnerZID.getSelectedItem().toString();
-        String code = mCodeFind.getText().toString().trim();
         if(!TextUtils.isEmpty(name)){
            String id = mDatabase.push().getKey();
 
-            Student student = new Student(id, name, zid, code);
+            Student student = new Student(id, name, zid);
             mDatabase.child(id).setValue(student);
             //Inform the user they have been successful
             Toast.makeText(this,"Attendance has been marked!", Toast.LENGTH_LONG).show();

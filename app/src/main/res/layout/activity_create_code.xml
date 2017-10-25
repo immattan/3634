@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tan.a3634.CreateCodeActivity">
+
+    <Button
+        android:id="@+id/genCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate Code"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <TextView
+        android:id="@+id/codeView"
+        android:layout_width="155dp"
+        android:layout_height="37dp"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <TextView
+        android:id="@+id/codeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make sure you have Displayed Code for Students"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="337dp" />
+
+    <Button
+        android:id="@+id/goCreateSesssion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Session"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="403dp" />
+
+</android.support.constraint.ConstraintLayout>

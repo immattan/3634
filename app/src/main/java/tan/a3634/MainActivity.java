@@ -17,11 +17,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        mStudent = (Button) findViewById(R.id.student); //Start activities containing functions depending on user type
+        mStudent = (Button) findViewById(R.id.student);
+        Intent intentOnButton =getIntent();
+        String enable = intentOnButton.getStringExtra("Button");
+        if(enable.equals("enabled")){
+            mStudent.setEnabled(true);
+        }
+        else{
+            mStudent.setEnabled(false);
+        }
+
+        //Start activities containing functions depending on user type
         mStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentStudent = new Intent (MainActivity.this, SessionActivity.class);
+                Intent intentStudent = new Intent (MainActivity.this, EnterCodeActivity.class);
                 startActivity(intentStudent);
             }
         });
@@ -29,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mTutor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentTutor = new Intent (MainActivity.this, CreateSessionActivity.class);
+                Intent intentTutor = new Intent (MainActivity.this, CreateCodeActivity.class);
                 startActivity(intentTutor);
             }
         });
@@ -54,3 +64,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+

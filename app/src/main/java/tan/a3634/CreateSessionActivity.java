@@ -23,7 +23,7 @@ import java.util.List;
 
 
 public class CreateSessionActivity extends AppCompatActivity {
-    private DatabaseReference cDatabase;
+   DatabaseReference cDatabase;
     private Spinner cspinnerClass;
     private Button ccreateButton;
 
@@ -33,9 +33,6 @@ public class CreateSessionActivity extends AppCompatActivity {
     private ListView listViewTut;
     List<Tutorial> tutorialList;
 
-    generateCode gen = new generateCode();
-    String roomCode = gen.nextString().toUpperCase();
-// The random string that becomes our push code is generated when attempting to create a Session
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +48,7 @@ public class CreateSessionActivity extends AppCompatActivity {
         ccreateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createSessionIntent = new Intent(CreateSessionActivity.this, StudentListActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putString("randomString", roomCode); // Bundle the room code and transfer it to be displayed
-                createSessionIntent.putExtras(mBundle);
-                startActivity(createSessionIntent);
                 addTutorial();
-                Toast.makeText(CreateSessionActivity.this, roomCode, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -101,10 +92,9 @@ public class CreateSessionActivity extends AppCompatActivity {
     private void addTutorial() {
 
         String classes = cspinnerClass.getSelectedItem().toString();
-        String roomcode = roomCode.getClass().toString();
         String id = cDatabase.push().getKey();
 
-        Tutorial tutorial = new Tutorial(id, classes, roomcode);
+        Tutorial tutorial = new Tutorial(id, classes);
         cDatabase.child(id).setValue(tutorial);
     }
 }
