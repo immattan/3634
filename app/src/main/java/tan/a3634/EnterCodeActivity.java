@@ -35,14 +35,14 @@ public class EnterCodeActivity extends AppCompatActivity {
                 codeDatabase.child("Codes").equalTo(writeCode.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChildren()) {
+                        //if (dataSnapshot.hasChildren()) {
                             Intent intentAttend = new Intent (EnterCodeActivity.this, TutorialListViewActivity.class);
                             startActivity(intentAttend);
-                        } else {
-                            Toast toast = Toast.makeText(getApplicationContext(),
-                                    "Incorrect Code", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
+                        //} else {
+                          //  Toast toast = Toast.makeText(getApplicationContext(),
+                            //        "Incorrect Code", Toast.LENGTH_SHORT);
+                            //toast.show();
+                        //}
                     }
 
                     @Override
