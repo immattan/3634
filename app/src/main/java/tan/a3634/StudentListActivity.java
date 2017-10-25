@@ -22,42 +22,34 @@ public class StudentListActivity extends AppCompatActivity {
     private Button deactivate;
     private TextView tutorialName;
     private ListView studentList;
-
     List<Student> students;
-   DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studentlistview);
+        String getCode = getIntent().getExtras().getString("randomString"); // Get the generated code from create activity
         tutorialName = findViewById(R.id.textTutName2);
+        tutorialName.setText(getCode); // And display that code
         activate = (Button) findViewById(R.id.activateAttend);
         deactivate = (Button) findViewById(R.id.deactivateAttend);
         students = new ArrayList<>();
         Intent intent = getIntent();
         String name = intent.getStringExtra(CreateSessionActivity.TUTORIAL_CLASSES);
+//<<<<<<< HEAD
         tutorialName.setText(name);
         mDatabase = FirebaseDatabase.getInstance().getReference("Students");
+//=======
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+//>>>>>>> 2bc592af7ddb43ab7b9bf81be85f7a0383ccda81
 
-
-        activate.setOnClickListener(new View.OnClickListener(){
-         @Override
-        public void onClick(View view) {
-             Intent myIntent = new Intent(StudentListActivity.this, MainActivity.class);
-             myIntent.putExtra("Button", "enabled");
-             startActivity(myIntent);
-        }
-          });
-
-        deactivate.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(StudentListActivity.this, MainActivity.class);
-                myIntent.putExtra("Button", "disabled");
-                startActivity(myIntent);
-            }
-        });
-
+//        activate.setOnClickListener(new View.OnClickListener(){
+//         @Override
+//         public void onClick(View view) {
+//
+//         }
+//           });
     }
     protected void onStart() {
         super.onStart();

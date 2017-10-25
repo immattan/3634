@@ -1,11 +1,12 @@
 package tan.a3634;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,48 +17,71 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TutorialListViewActivity extends AppCompatActivity {
-    DatabaseReference cDatabase;
-    private ListView listViewTut;
-    List<Tutorial> tutorialList;
+/**
+ * Created by Tan on 20/10/2017.
+ */
 
+public class SessionActivity extends AppCompatActivity {
     public static final String TUTORIAL_ID = "tutorialID";
     public static final String TUTORIAL_CLASSES = "tutorialClasses";
+    private DatabaseReference cDatabase;
+    private ListView listViewTut;
+//<<<<<<< HEAD
+    //List<Tutorial> studentTutorial;
 
+
+//=======
+//<<<<<<< HEAD
+    List<Tutorial> studentTutorial;
+
+//=======
+//>>>>>>> 2bc592af7ddb43ab7b9bf81be85f7a0383ccda81
+    private TextView tutorialName;
+    List<Tutorial> tutorialList;
+    // This activity is a listView that displays all the current sessions in the database.
+    // Students can select a session and attempt to join it
+//<<<<<<< HEAD
+
+//=======
+////>>>>>>> aa09dc8715c9686a089574090876a2545bfe478a
+//>>>>>>> 2bc592af7ddb43ab7b9bf81be85f7a0383ccda81
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tutorialsessions);
-        cDatabase = FirebaseDatabase.getInstance().getReference("Classes");
-        listViewTut = (ListView) findViewById(R.id.listViewTutorial2);
-        tutorialList = new ArrayList<>();
+        setContentView(R.layout.sessionlistview);
+        listViewTut = (ListView) findViewById(R.id.listViewTutorial);
+
+
+        studentTutorial = new ArrayList<>();
+
+        cDatabase = FirebaseDatabase.getInstance().getReference();
 
         listViewTut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Tutorial tutorial = tutorialList.get(i);
+                Tutorial tutorial = studentTutorial.get(i);
                 Intent intent = new Intent(getApplicationContext(),StudentViewActivity.class);
 
                 intent.putExtra(TUTORIAL_ID, tutorial.getClassID());
                 intent.putExtra(TUTORIAL_CLASSES, tutorial.getClasses());
 
                 startActivity(intent);
+
             }
         });
     }
 
-    @Override
     protected void onStart() {
         super.onStart();
         cDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                tutorialList.clear();
+                studentTutorial.clear();
                 for(DataSnapshot tutorialSnapshot: dataSnapshot.getChildren()){
                     Tutorial tutorial = tutorialSnapshot.getValue(Tutorial.class);
-                    tutorialList.add(tutorial);
+                    studentTutorial.add(tutorial);
                 }
-                TutorialList adapter = new TutorialList(TutorialListViewActivity.this, tutorialList);
+                StudentTutorialList adapter = new StudentTutorialList(SessionActivity.this, studentTutorial);
                 listViewTut.setAdapter(adapter);
             }
 
