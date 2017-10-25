@@ -4,7 +4,7 @@
     <string name="attendButton">Attend!</string>
     <string name="textCreate">Create Session</string>
     <string name="className">Enter the Class Name</string>
-    <string name="radioText">Session Length</string>
+    <string name="radioText">Session Code</string>
     <string name="createButton">Create Session</string>
     <string name="idLogin">Enter your zID</string>
     <string name="passwordLogin">Enter password</string>

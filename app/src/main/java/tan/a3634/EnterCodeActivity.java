@@ -40,7 +40,7 @@ public class EnterCodeActivity extends AppCompatActivity {
                             startActivity(intentAttend);
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(),
-                                    "Wrong Code try again!", Toast.LENGTH_SHORT);
+                                    "Incorrect Code", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     }

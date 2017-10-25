@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +30,7 @@ public class CreateSessionActivity extends AppCompatActivity {
 
     public static final String TUTORIAL_ID = "tutorialID";
     public static final String TUTORIAL_CLASSES = "tutorialClasses";
-
+    private TextView mCodeDisplay;
     private ListView listViewTut;
     List<Tutorial> tutorialList;
 
@@ -38,12 +39,14 @@ public class CreateSessionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createsession);
+        String code = getIntent().getExtras().getString("codeString");
         cDatabase = FirebaseDatabase.getInstance().getReference("Classes");
         ccreateButton = (Button) findViewById(R.id.createButton);
         cspinnerClass = (Spinner) findViewById(R.id.spinnerClass);
         listViewTut = (ListView) findViewById(R.id.listViewTutorial);
         tutorialList = new ArrayList<>();
-
+        mCodeDisplay = findViewById(R.id.codeDisplay);
+        mCodeDisplay.setText(code);
 
         ccreateButton.setOnClickListener(new View.OnClickListener() {
             @Override

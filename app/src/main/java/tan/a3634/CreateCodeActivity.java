@@ -25,13 +25,22 @@ public class CreateCodeActivity extends AppCompatActivity {
         nextSession = (Button) findViewById(R.id.goCreateSesssion);
         showCode = (TextView) findViewById(R.id.codeView);
         codeDatabase = FirebaseDatabase.getInstance().getReference("Codes");
+        generateCode gen = new generateCode();
+        final String roomCode = gen.nextString().toUpperCase();
+        final Bundle bundle1 = new Bundle();
+        bundle1.putString("codeString", roomCode);
+
 
         genCode.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View view) {
-                addCode();
+                showCode.setText(roomCode);
+                String name = showCode.getText().toString();
+                String id = codeDatabase.push().getKey();
+                Code code = new Code(id, name);
+                codeDatabase.child(id).setValue(code);
             }
         });
         nextSession.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +49,7 @@ public class CreateCodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentCreate = new Intent (CreateCodeActivity.this, CreateSessionActivity.class);
+                intentCreate.putExtras(bundle1);
                 startActivity(intentCreate);
             }
         });
@@ -55,8 +65,7 @@ public class CreateCodeActivity extends AppCompatActivity {
 }
 
 
-//    generateCode gen = new generateCode();
-//String roomCode = gen.nextString().toUpperCase();
+
 // The random string that becomes our push code is generated when attempting to create a Session
 //    Bundle mBundle = new Bundle();
 //                mBundle.putString("randomString", roomCode); // Bundle the room code and transfer it to be displayed

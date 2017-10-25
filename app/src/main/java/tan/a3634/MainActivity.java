@@ -6,6 +6,7 @@ package tan.a3634;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
+        import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,15 +19,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.splash);
 
         mStudent = (Button) findViewById(R.id.student);
-        Intent intentOnButton =getIntent();
-        String enable = intentOnButton.getStringExtra("Button");
-        if(enable.equals("enabled")){
-            mStudent.setEnabled(true);
+        try {
+            Intent intentOnButton = getIntent();
+            String enable = intentOnButton.getStringExtra("Button");
+            if (enable.equals("enabled")) {
+                mStudent.setEnabled(true);
+            } else {
+                mStudent.setEnabled(false);
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "No Current Sessions", Toast.LENGTH_SHORT).show();
         }
-        else{
-            mStudent.setEnabled(false);
-        }
-
         //Start activities containing functions depending on user type
         mStudent.setOnClickListener(new View.OnClickListener() {
             @Override
