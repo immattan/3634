@@ -36,7 +36,7 @@ public class EnterCodeActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChildren()) {
-                            Intent intentAttend = new Intent (EnterCodeActivity.this, StudentViewActivity.class);
+                            Intent intentAttend = new Intent (EnterCodeActivity.this, TutorialListViewActivity.class);
                             startActivity(intentAttend);
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(),
